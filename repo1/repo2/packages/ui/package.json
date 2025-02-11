@@ -8,6 +8,7 @@
     "dist"
   ],
   "exports": {
+    "./gen1": "./src/gen1.tsx",
     "./styles.css": "./dist/index.css",
     "./card": "./src/card.tsx"
   },
@@ -16,7 +17,8 @@
     "build": "tailwindcss -i ./src/styles.css -o ./dist/index.css",
     "check-types": "tsc --noEmit",
     "dev": "tailwindcss -i ./src/styles.css -o ./dist/index.css --watch",
-    "lint": "eslint src --max-warnings 0"
+    "lint": "eslint src --max-warnings 0",
+    "generate:component": "turbo gen react-component"
   },
   "peerDependencies": {
     "react": "^19"

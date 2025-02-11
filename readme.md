@@ -22,8 +22,14 @@ A monorepo framework provides tools and conventions for managing projects that c
 npx create-turbo@latest
 - with tailwind 
 npx create-turbo@latest -e with-tailwind
- 
+### to setup generate compo
+copy turbo directory in ui
+update package.json sxripts   "generate:component": "turbo gen react-component" 
 
 ## create a compo in ui
 update package.json
 then import 
+or 
+npm run generate:component
+
+
