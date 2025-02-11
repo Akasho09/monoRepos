@@ -19,6 +19,11 @@ A monorepo framework provides tools and conventions for managing projects that c
 
 
 ## turbo
-npx create turbo@latest
-
+npx create-turbo@latest
+- with tailwind 
+npx create-turbo@latest -e with-tailwind
  
+
+## create a compo in ui
+update package.json
+then import 
