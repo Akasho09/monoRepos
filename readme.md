@@ -33,3 +33,80 @@ or
 npm run generate:component
 
 
+## adding react to turbo projrct
+in apps dir 
+npm create vite@latest
+cd ..
+npm i - npm i in parent dir 
+add "@repo/ui": "*" in package.json 
+
+
+## add backend folder 
+
+- tsconfig or simply tsc --init 
+{
+  "extends": "@repo/typescript-config/base.json",
+  "compilerOptions": {
+    "lib": ["ES2015"],
+    "module": "NodeNext", 
+    "outDir": "./dist"
+  },
+  "exclude": ["node_modules" , "dist"],
+  "include": ["."]
+}
+
+-  install express
+- update package.json 
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build" : "tsc -b",
+    "dev"  : "tsc -b && node dist/index.js"
+  },
+
+## npm run dev starts all 4 apps at once 
+
+## common in packages for both fend and bend 
+package.json : 
+{
+  "name": "@akash09/common",
+  "version": "1.0.0",
+  "main": "index.js",
+  "exports": {
+    "./urls" : "/urls.ts"
+  },
+  "dependencies": {
+    "@akash09/common" : "*"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
+cd ..
+npm i
+
+> cyclic depemdicies
+{
+  "name": "@akash09/common",
+  "version": "1.0.0",
+  "main": "index.js",
+  "exports": {
+    "./urls": "./urls.js"   // Ensure it's compiled to JavaScript
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
+
+###  no need to compile to js in common as it gets at end again
+if error 
+use esbuild for transpiling ts to js in comon module .
+
+
